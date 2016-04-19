@@ -23,7 +23,7 @@ Rollout RL_UiTest "Animate"
 				(
 					rotate rotorPath rot
 				)--; tailRotorPath)
-			at time 100 
+			at time animationRange.end 
 				(
 					holder = 300
 					rotate rotorPath rot
