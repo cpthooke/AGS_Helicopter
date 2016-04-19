@@ -1,10 +1,9 @@
-holder = 0
 rotor = "Sphere004"
 tailRotor = "Sphere003"
 rotorPath = execute ("$'"+ rotor + "'")
 tailRotorPath = execute ("$'"+ tailRotor + "'")
-rot = angleaxis holder [0, 0, 1]
-tailRot = eulerangles 181 0 0
+--rot = angleaxis 0 [0, 0, 1]
+--tailRot = eulerangles 181 0 0
 
 animate off
 deleteKeys objects #allKeys
@@ -17,17 +16,17 @@ Rollout RL_UiTest "Animate"
 	(
 		animate on
 		(
-			--rotate rotorPath rot
-			--rotate tailRotorPath tailRot
 			at time animationRange.start 
 				(
-					rotate rotorPath rot
-				)--; tailRotorPath)
+					rotate rotorPath (angleaxis 0 [0, 0, 1])
+					rotate tailRotorPath (angleaxis 0 [-1, 0, 0])
+				)
 			at time animationRange.end 
 				(
-					holder = 300
-					rotate rotorPath rot
-				)--; rotate tailRotorPath tailRot)
+					holder = 360
+					rotate rotorPath (angleaxis 360 [0, 0, 1])
+					rotate tailRotorPath (angleaxis 360 [1, 0, 0])
+				)
 			playanimation()
 		)
 	)
